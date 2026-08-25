@@ -1,3 +1,9 @@
+**This repository is for constructing my blogs connected to my obsidian notes**
+
+[Blog](https://hyun-jin891.github.io/obsidian_notes/)
+
+
+
 # Quartz v5
 
 > “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
