@@ -12,3 +12,10 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+
+# Local / unpublished vault material (not for GitHub Pages)
+content/Research/
+content/To-do-list for Today.md
+content/*.xlsx
+content/*.tsv
+content/StrandPhaseR_final_output.txt

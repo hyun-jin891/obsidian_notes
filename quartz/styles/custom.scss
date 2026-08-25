@@ -1,3 +1,203 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Atmosphere — soft cool wash instead of flat fill
+body {
+  background-color: var(--light);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 0% 0%, color-mix(in srgb, var(--tertiary) 12%, transparent), transparent 55%),
+    radial-gradient(ellipse 90% 70% at 100% 100%, color-mix(in srgb, var(--secondary) 8%, transparent), transparent 50%),
+    linear-gradient(165deg, var(--light) 0%, color-mix(in srgb, var(--lightgray) 35%, var(--light)) 100%);
+  background-attachment: fixed;
+}
+
+.page-title {
+  font-family: var(--headerFont);
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+
+  a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+}
+
+article {
+  line-height: 1.75;
+
+  > h1:first-of-type {
+    margin-top: 0.5rem;
+    letter-spacing: -0.025em;
+  }
+
+  p,
+  li {
+    line-height: 1.75;
+  }
+
+  a.internal {
+    color: var(--secondary);
+    background-color: #f5e6a8;
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      color: var(--tertiary);
+      background-color: #ffe9a0;
+    }
+  }
+
+  a.external {
+    color: var(--secondary);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+
+    &:hover {
+      color: var(--tertiary);
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.015em;
+}
+
+blockquote {
+  border-left-width: 3px;
+  border-left-color: var(--secondary);
+  background: color-mix(in srgb, var(--highlight) 70%, transparent);
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
+  margin: 1.25rem 0;
+}
+
+pre {
+  border-radius: 8px;
+  border-color: color-mix(in srgb, var(--lightgray) 80%, var(--secondary));
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--dark) 4%, transparent);
+}
+
+code {
+  border-radius: 4px;
+}
+
+.left.sidebar,
+.right.sidebar {
+  @media all and ($desktop) {
+    backdrop-filter: blur(6px);
+  }
+}
+
+// Folder/tag listings — chip highlight (overrides PageList transparent bg)
+.page-listing {
+  .section-ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .section-li {
+    margin: 0.45rem 0;
+  }
+
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .meta:empty {
+    display: none;
+  }
+
+  // Must beat: li.section-li > .section > .desc > h3 > a { background: transparent }
+  li.section-li > .section > .desc > h3 > a.internal {
+    color: var(--secondary) !important;
+    background-color: #f5e6a8 !important;
+    padding: 0.15rem 0.5rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-family: var(--headerFont);
+    font-weight: 500;
+    line-height: 1.5;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      color: var(--tertiary) !important;
+      background-color: #ffe9a0 !important;
+    }
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+}
+
+// Folder pages already list children in .page-listing — keep article wikilinks
+// for the graph index, but don't show duplicate chips in the body.
+.popover-hint:has(> .page-listing) article a.internal {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Resume page — cleaner CV layout
+body[data-slug="resume"] {
+  article {
+    max-width: 46rem;
+
+    > h1:first-of-type {
+      margin-bottom: 0.35rem;
+    }
+
+    > p:first-of-type {
+      color: var(--gray);
+      margin-top: 0;
+    }
+
+    h2 {
+      margin-top: 1.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--lightgray);
+      font-size: 1.15rem;
+    }
+
+    hr {
+      margin: 1.25rem 0;
+      opacity: 0.55;
+    }
+
+    table {
+      font-size: 0.95rem;
+    }
+
+    td,
+    th {
+      vertical-align: top;
+    }
+  }
+}
