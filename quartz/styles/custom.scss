@@ -12,10 +12,11 @@ body {
 
 .page-title {
   font-family: var(--headerFont);
-  font-size: 1.85rem;
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  white-space: nowrap;
 
   a {
     color: var(--dark);
