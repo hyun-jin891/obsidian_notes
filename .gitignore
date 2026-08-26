@@ -14,8 +14,28 @@ quartz/cli/tui/dist/
 .turbo/
 
 # Local / unpublished vault material (not for GitHub Pages)
-content/Research/
 content/To-do-list for Today.md
 content/*.xlsx
 content/*.tsv
 content/StrandPhaseR_final_output.txt
+
+# Research: only project title pages are tracked; TRIM + internals stay local
+content/Research/**
+!content/Research/
+!content/Research/Research.md
+!content/Research/ATAC2SCE/
+!content/Research/ATAC2SCE/ATAC2SCE.md
+!content/Research/CellTyper/
+!content/Research/CellTyper/CellTyper.md
+!content/Research/Clonal Hematopoiesis/
+!content/Research/Clonal Hematopoiesis/Clonal Hematopoiesis.md
+!content/Research/Initial_CRC/
+!content/Research/Initial_CRC/Initial_CRC.md
+!content/Research/Pheno2GeneRank/
+!content/Research/Pheno2GeneRank/Pheno2GeneRank.md
+!content/Research/PIF/
+!content/Research/PIF/PIF.md
+!content/Research/StrandVI/
+!content/Research/StrandVI/StrandVI.md
+!content/Research/SVChatAgent/
+!content/Research/SVChatAgent/SVChatAgent.md

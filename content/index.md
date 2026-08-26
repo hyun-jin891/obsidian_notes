@@ -9,4 +9,5 @@ research notes, study logs, and project write-ups.
 
 - [[Study/Study|Study]]
 - [[Project/Project|Project]]
+- [[Research/Research|Research]]
 - [[Research List]]
