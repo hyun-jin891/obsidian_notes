@@ -1,1 +1,1 @@
-export { ResumeNav } from "./components/index.js"
+export { ResumeNav, SocialLinks } from "./components/index.js"

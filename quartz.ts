@@ -3,7 +3,7 @@ import { componentRegistry } from "./quartz/components/registry"
 import { PageTypeDispatcher } from "./quartz/plugins/pageTypes/dispatcher"
 import { injectFolderGraphLinks } from "./quartz/plugins/emitters/folderGraphLinks"
 import { rewriteContentIndexForGraph } from "./quartz/plugins/emitters/normalizeGraphIndex"
-import { ResumeNav } from "./plugins/resume-nav/dist/components/index.js"
+import { ResumeNav, SocialLinks } from "./plugins/resume-nav/dist/components/index.js"
 import { QuartzComponent } from "./quartz/components/types"
 import { BuildCtx } from "./quartz/util/ctx"
 import { ProcessedContent } from "./quartz/plugins/vfile"
@@ -31,25 +31,28 @@ const config = await loadQuartzConfig()
 
 const baseLayout = await loadQuartzLayout()
 const resumeNav = ResumeNav() as QuartzComponent
+const socialLinks = SocialLinks() as QuartzComponent
 
-function injectResume(left: QuartzComponent[] | undefined): QuartzComponent[] {
-  if (!left || left.length === 0) return [resumeNav]
+function injectSidebarExtras(left: QuartzComponent[] | undefined): QuartzComponent[] {
+  if (!left || left.length === 0) return [resumeNav, socialLinks]
   const copy = [...left]
+  // Resume just above Notes/explorer; social icons after Notes (sibling, not nested)
   copy.splice(Math.max(copy.length - 1, 0), 0, resumeNav)
+  copy.push(socialLinks)
   return copy
 }
 
 const layoutWithResume = {
   defaults: {
     ...baseLayout.defaults,
-    left: injectResume(baseLayout.defaults.left as QuartzComponent[] | undefined),
+    left: injectSidebarExtras(baseLayout.defaults.left as QuartzComponent[] | undefined),
   },
   byPageType: Object.fromEntries(
     Object.entries(baseLayout.byPageType).map(([pageType, pageLayout]) => [
       pageType,
       {
         ...pageLayout,
-        left: injectResume(
+        left: injectSidebarExtras(
           (pageLayout.left as QuartzComponent[] | undefined) ??
             (baseLayout.defaults.left as QuartzComponent[] | undefined),
         ),

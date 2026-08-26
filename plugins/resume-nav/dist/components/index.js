@@ -47,7 +47,6 @@ export function ResumeNav() {
     })
   }
 
-
   Component.css = `
 .resume-nav {
   margin: 1rem 0 0.35rem;
@@ -64,6 +63,84 @@ export function ResumeNav() {
 .resume-nav a:hover,
 .resume-nav.active a {
   color: var(--secondary);
+}
+`
+  return Component
+}
+
+/** GitHub + ORCID icon links — sidebar sibling of Notes (not inside explorer). */
+export function SocialLinks() {
+  const Component = ({ fileData, displayClass }) => {
+    const base = pathToRoot(fileData.slug)
+    const githubIcon = joinSegments(base, "static/github.svg")
+    const orcidIcon = joinSegments(base, "static/orcid.png")
+
+    return jsx("nav", {
+      class: classNames(displayClass, "social-links"),
+      "aria-label": "Profiles",
+      children: [
+        jsx("a", {
+          href: "https://github.com/hyun-jin891",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          "aria-label": "GitHub",
+          title: "GitHub",
+          children: jsx("img", {
+            class: "social-links__icon social-links__icon--github",
+            src: githubIcon,
+            width: 22,
+            height: 22,
+            alt: "",
+          }),
+        }),
+        jsx("a", {
+          href: "https://orcid.org/0009-0006-3212-9038",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          "aria-label": "ORCID",
+          title: "ORCID",
+          children: jsx("img", {
+            class: "social-links__icon social-links__icon--orcid",
+            src: orcidIcon,
+            width: 22,
+            height: 22,
+            alt: "",
+          }),
+        }),
+      ],
+    })
+  }
+
+  Component.css = `
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.15rem 0 0.5rem;
+  padding-top: 0.35rem;
+}
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.social-links a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+.social-links__icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+.social-links__icon--github {
+  filter: none;
+}
+:root[saved-theme="dark"] .social-links__icon--github {
+  filter: invert(1);
 }
 `
   return Component
