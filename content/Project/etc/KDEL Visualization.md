@@ -2,6 +2,7 @@
 publish: true
 ---
 
+
 * 프로젝트 이름 : KDEL Visualization
 
 * 이론적 배경

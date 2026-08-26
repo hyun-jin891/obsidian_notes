@@ -2,6 +2,7 @@
 publish: true
 ---
 
+
 [Github](https://github.com/hyun-jin891/Emotion_classification_from_EEG)
 # 🔥2024_2 프로메테우스 EEG 프로젝트팀 
 

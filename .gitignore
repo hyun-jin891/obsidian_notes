@@ -3,6 +3,7 @@
 node_modules
 public
 prof
+content.bak
 tsconfig.tsbuildinfo
 .obsidian
 .quartz-cache
@@ -24,8 +25,8 @@ content/StrandPhaseR_final_output.txt
 content/Research/**
 !content/Research/
 !content/Research/Research.md
-!content/Research/ATAC2SCE/
-!content/Research/ATAC2SCE/ATAC2SCE.md
+!content/Research/ATAC2Breakpoint/
+!content/Research/ATAC2Breakpoint/ATAC2Breakpoint.md
 !content/Research/CellTyper/
 !content/Research/CellTyper/CellTyper.md
 !content/Research/Clonal Hematopoiesis/

@@ -3,6 +3,7 @@ publish: true
 ---
 
 
+
 # Low Coverage but Sufficient for Structural Variant Detection
 
 Strand-seq typically generates **very low sequencing coverage per single cell** compared with conventional whole-genome sequencing. However, this low coverage can still be sufficient for detecting **structural variants (SVs)** because Strand-seq captures **DNA strand orientation** rather than relying only on local read depth.

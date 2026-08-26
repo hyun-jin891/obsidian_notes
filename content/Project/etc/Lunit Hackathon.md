@@ -3,6 +3,7 @@ publish: true
 ---
 
 
+
 **Fin strategy
 
 Applied HyDE with L2-generated rationales to improve RAG, tool selection, and context quality, and built a multi-agent system based on this core principle
