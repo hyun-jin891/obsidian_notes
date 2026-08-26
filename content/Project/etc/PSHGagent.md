@@ -2,7 +2,6 @@
 publish: true
 ---
 
-
 # PSHGagent: Protein & Semiconductor Hypothesis Generation Agent
 
 **PSHGagent**는 기판(substrate)과 타겟(target) 분자를 입력받아, 해당 조건에 맞는 펩타이드 서열을 생성하고, 구조·물성·결합 유사도를 분석한 뒤 **LLM으로 바인딩 가설**을 생성하는 파이프라인 에이전트입니다. 반도체/바이오 소재 연구에서 “이 펩타이드가 타겟에 붙을 가능성이 있는가?”를 과학적으로 신중한 가설로 정리해 줍니다.

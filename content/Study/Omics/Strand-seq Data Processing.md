@@ -2,7 +2,6 @@
 publish: true
 ---
 
-
 [[Filtering Library Types]]
 
 

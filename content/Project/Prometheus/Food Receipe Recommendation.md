@@ -2,7 +2,6 @@
 publish: true
 ---
 
-
 [Github](https://github.com/hyun-jin891/Food_recipe_project)
 
 

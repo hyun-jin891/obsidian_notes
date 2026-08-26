@@ -4,7 +4,6 @@ publish: true
 
 
 
-
 (1) 서버 로그인 ssh [username]@165.132.32.110  
 (2) /home/hyobinjeong/Project_mosaicatcher_RPE_mixture_Tutorial  (example)
 (3) run_mosaicatcher.sh 복사 (cp /home/shared/run_mosaicatcher.sh ./)  

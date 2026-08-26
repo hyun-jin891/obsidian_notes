@@ -4,7 +4,6 @@ publish: true
 
 
 
-
 ![[Pasted image 20260817174806.png]]
 
 

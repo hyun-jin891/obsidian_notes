@@ -2,7 +2,6 @@
 publish: true
 ---
 
-
 [Github](https://github.com/hyun-jin891/Hair_style_recommendation_and_simulation)
 
 ## 🔥2024_2_Basic_Study_HairStyler

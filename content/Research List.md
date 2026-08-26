@@ -4,10 +4,9 @@ publish: false
 
 
 
-
 - [ ] CellTyper - **First author
-- [ ] Trim31 in Early PDAC  - **Co-author
-- [ ] Trim40, Trim31, and Trim15 in Intestine   - **Co-author
+- [ ] gene Y in Early PDAC  - **Co-author
+- [ ] gene X, gene Y, and gene Z in Intestine   - **Co-author
 - [ ] PIF   - **First author
 - [ ] StrandVI     - **First author
 

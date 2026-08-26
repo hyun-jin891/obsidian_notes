@@ -2,16 +2,5 @@
 publish: true
 ---
 
-
-
-[[Prometheus]]
-
-[[Prologue]]
-
-[[PSHGagent]]
-
-[[KDEL Visualization]]
-
-
-[[Lunit Hackathon]]
-
+[[Project/Prometheus/Prometheus|Prometheus]]
+[[Project/etc]]

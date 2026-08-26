@@ -2,7 +2,6 @@
 publish: true
 ---
 
-
 [[Machine Learning Overview]]
 [[MLP & CNN]]
 [[Sequence Data Model]]
