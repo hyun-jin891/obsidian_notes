@@ -21,9 +21,36 @@ const resumeFilterFn = (node: {
   return true
 }
 
+/** Home Browse order: Study → Research → Project, then A–Z for the rest. */
+const explorerSortFn = (
+  a: { isFolder?: boolean; displayName?: string; slugSegment?: string },
+  b: { isFolder?: boolean; displayName?: string; slugSegment?: string },
+) => {
+  const rank = (node: { displayName?: string; slugSegment?: string }) => {
+    const name = (node.displayName || node.slugSegment || "").toLowerCase()
+    if (name === "study") return 0
+    if (name === "research") return 1
+    if (name === "project") return 2
+    return 100
+  }
+
+  if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+    const ra = rank(a)
+    const rb = rank(b)
+    if (ra !== rb) return ra - rb
+    return (a.displayName || "").localeCompare(b.displayName || "", undefined, {
+      numeric: true,
+      sensitivity: "base",
+    })
+  }
+  if (!a.isFolder && b.isFolder) return 1
+  return -1
+}
+
 for (const key of ["explorer", "@quartz-community/explorer"]) {
   componentRegistry.setOptionOverrides(key, {
     filterFn: resumeFilterFn,
+    sortFn: explorerSortFn,
   })
 }
 

@@ -29,20 +29,24 @@ body {
   }
 }
 
-// Collapsed "Notes" title was clipped at 1.2rem (Fraunces descenders)
+// Collapsed Notes: clip children, but keep enough height for the title (Fraunces)
 .explorer {
   min-height: 1.85rem;
+  overflow-y: hidden;
 }
 
 .explorer.collapsed {
-  flex: 0 0 auto;
+  flex: 0 0 1.85rem;
+  max-height: 1.85rem;
   min-height: 1.85rem;
+  overflow: hidden;
 }
 
 button.desktop-explorer h2,
 button.mobile-explorer h2 {
   line-height: 1.45;
-  padding-bottom: 0.15rem;
+  margin: 0;
+  padding: 0.1rem 0 0.2rem;
 }
 
 article {
