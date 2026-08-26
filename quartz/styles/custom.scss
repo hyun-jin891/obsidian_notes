@@ -29,6 +29,22 @@ body {
   }
 }
 
+// Collapsed "Notes" title was clipped at 1.2rem (Fraunces descenders)
+.explorer {
+  min-height: 1.85rem;
+}
+
+.explorer.collapsed {
+  flex: 0 0 auto;
+  min-height: 1.85rem;
+}
+
+button.desktop-explorer h2,
+button.mobile-explorer h2 {
+  line-height: 1.45;
+  padding-bottom: 0.15rem;
+}
+
 article {
   line-height: 1.75;
 

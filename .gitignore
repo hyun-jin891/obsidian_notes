@@ -15,6 +15,7 @@ quartz/cli/tui/dist/
 
 # Local / unpublished vault material (not for GitHub Pages)
 content/To-do-list for Today.md
+content/Research List.md
 content/*.xlsx
 content/*.tsv
 content/StrandPhaseR_final_output.txt
