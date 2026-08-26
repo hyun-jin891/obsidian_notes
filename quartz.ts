@@ -21,23 +21,23 @@ const resumeFilterFn = (node: {
   return true
 }
 
-/** Home Browse order: Study → Research → Project, then A–Z for the rest. */
+/** Home Browse order: Study → Research → Project, then A–Z for the rest.
+ * Keep this flat (no nested functions) — explorer serializes via `.toString()`
+ * and esbuild `__name(...)` wrappers break `new Function` in the browser.
+ */
 const explorerSortFn = (
   a: { isFolder?: boolean; displayName?: string; slugSegment?: string },
   b: { isFolder?: boolean; displayName?: string; slugSegment?: string },
 ) => {
-  const rank = (node: { displayName?: string; slugSegment?: string }) => {
-    const name = (node.displayName || node.slugSegment || "").toLowerCase()
-    if (name === "study") return 0
-    if (name === "research") return 1
-    if (name === "project") return 2
-    return 100
-  }
+  const nameA = (a.displayName || a.slugSegment || "").toLowerCase()
+  const nameB = (b.displayName || b.slugSegment || "").toLowerCase()
+  const rankA =
+    nameA === "study" ? 0 : nameA === "research" ? 1 : nameA === "project" ? 2 : 100
+  const rankB =
+    nameB === "study" ? 0 : nameB === "research" ? 1 : nameB === "project" ? 2 : 100
 
   if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-    const ra = rank(a)
-    const rb = rank(b)
-    if (ra !== rb) return ra - rb
+    if (rankA !== rankB) return rankA - rankB
     return (a.displayName || "").localeCompare(b.displayName || "", undefined, {
       numeric: true,
       sensitivity: "base",
